@@ -19,7 +19,7 @@ public class Project {
 
     @ManyToOne
     @NotNull
-    private Enterprise entreprise;
+    private Enterprise enterprise;
 
     public Project(){
     }
@@ -32,12 +32,14 @@ public class Project {
         this.description=description;
     }
 
-    public void setEnterprise(Enterprise entreprise){ this.entreprise=entreprise;}
+    public void setEnterprise(Enterprise entreprise){
+        this.enterprise=entreprise;
+    }
 
     public long getId(){
         return this.id;
     }
 
-    public Enterprise getEnterprise(){ return this.entreprise;}
+    public Enterprise getEnterprise(){ return this.enterprise;}
 
 }

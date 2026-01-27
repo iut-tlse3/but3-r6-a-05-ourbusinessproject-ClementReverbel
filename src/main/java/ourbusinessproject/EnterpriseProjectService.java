@@ -2,6 +2,8 @@ package ourbusinessproject;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,6 +25,9 @@ public class EnterpriseProjectService {
         p.setTitle(title);
         p.setDescription(description);
         p.setEnterprise(enterprise);
+        if(enterprise!=null) {
+            enterprise.addProject(p);
+        }
         this.EM.persist(p);
         this.EM.flush();
         return p;

@@ -3,6 +3,10 @@ package ourbusinessproject;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.concurrent.ArrayBlockingQueue;
+
 @Entity
 @Table(name="Enterprises")
 public class Enterprise {
@@ -23,6 +27,9 @@ public class Enterprise {
     @NotBlank
     @Email
     private String contactemail;
+
+    @OneToMany(mappedBy = "enterprise")
+    private Collection<Project> projects;
 
     public Enterprise(){
     }
@@ -45,5 +52,16 @@ public class Enterprise {
 
     public Long getId(){
         return this.id;
+    }
+
+    public Collection<Project> getProjects(){
+        return projects;
+    }
+
+    public void addProject(Project project){
+        if (this.projects == null){
+            this.projects=new ArrayList<Project>();
+        }
+        this.projects.add(project);
     }
 }
