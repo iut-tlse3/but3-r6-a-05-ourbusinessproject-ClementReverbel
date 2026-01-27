@@ -42,4 +42,8 @@ public class Enterprise {
     public void setContactEmail(String contactemail){
         this.contactemail=contactemail;
     }
+
+    public Long getId(){
+        return this.id;
+    }
 }

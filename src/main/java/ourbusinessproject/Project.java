@@ -16,6 +16,9 @@ public class Project {
 
     private String description;
 
+    @ManyToOne
+    private Enterprise entreprise;
+
     public Project(){
     }
 
@@ -26,4 +29,9 @@ public class Project {
     public void setDescription(String description){
         this.description=description;
     }
+
+    public long getId(){
+        return this.id;
+    }
+
 }
