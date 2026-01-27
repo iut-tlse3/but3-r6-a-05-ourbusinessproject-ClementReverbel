@@ -1,25 +1,19 @@
 package ourbusinessproject;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Enterprise {
 
-    @NotNull
-    @Size(min=1)
+    @NotBlank
     private String name;
 
     @Size(min=10)
     private String description;
 
-    @NotNull
-    @Size(min=1)
+    @NotBlank
     private String contactname;
 
-    @NotNull
-    @Size(min=1)
+    @NotBlank
     @Email
     private String contactemail;
 
