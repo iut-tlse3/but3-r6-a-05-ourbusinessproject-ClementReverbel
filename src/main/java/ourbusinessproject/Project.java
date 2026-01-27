@@ -1,11 +1,9 @@
 package ourbusinessproject;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotBlank;
 
 public class Project {
-    @NotNull
-    @Size(min=1)
+    @NotBlank
     private String title;
 
     private String description;
