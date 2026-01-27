@@ -2,6 +2,7 @@ package ourbusinessproject;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Projects")
@@ -17,6 +18,7 @@ public class Project {
     private String description;
 
     @ManyToOne
+    @NotNull
     private Enterprise entreprise;
 
     public Project(){
@@ -30,8 +32,12 @@ public class Project {
         this.description=description;
     }
 
+    public void setEnterprise(Enterprise entreprise){ this.entreprise=entreprise;}
+
     public long getId(){
         return this.id;
     }
+
+    public Enterprise getEnterprise(){ return this.entreprise;}
 
 }

@@ -18,10 +18,11 @@ public class EnterpriseProjectService {
         return this.EM;
     }
 
-    public Project newProject(String title, String description){
+    public Project newProject(String title, String description, Enterprise enterprise){
         Project p=new Project();
         p.setTitle(title);
         p.setDescription(description);
+        p.setEnterprise(enterprise);
         this.EM.persist(p);
         this.EM.flush();
         return p;
