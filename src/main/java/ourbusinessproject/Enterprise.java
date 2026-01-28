@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.concurrent.ArrayBlockingQueue;
 
 @Entity
@@ -54,13 +55,15 @@ public class Enterprise {
         return this.id;
     }
 
+    public String getName(){return this.name;}
+
     public Collection<Project> getProjects(){
         return projects;
     }
 
     public void addProject(Project project){
         if (this.projects == null){
-            this.projects=new ArrayList<Project>();
+            this.projects=new HashSet<>();
         }
         this.projects.add(project);
     }

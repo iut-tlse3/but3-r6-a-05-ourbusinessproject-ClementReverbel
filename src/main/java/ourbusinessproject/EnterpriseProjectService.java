@@ -3,6 +3,7 @@ package ourbusinessproject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.procedure.internal.EntityDomainResultBuilder;
@@ -12,6 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
+@Transactional
 public class EnterpriseProjectService {
 
     @PersistenceContext
@@ -30,11 +32,9 @@ public class EnterpriseProjectService {
         p.setTitle(title);
         p.setDescription(description);
         p.setEnterprise(enterprise);
-        if(enterprise!=null) {
-            enterprise.addProject(p);
-        }
         this.EM.persist(p);
         this.EM.flush();
+        enterprise.addProject(p);
         return p;
     }
 
@@ -57,7 +57,7 @@ public class EnterpriseProjectService {
         return this.EM.find(Enterprise.class,id);
     }
 
-    public List<Project> findAllProject(){
+    public List<Project> findAllProjects(){
         String query = "SELECT p FROM Project p ORDER BY p.title";
         TypedQuery<Project> queryObj = EM.createQuery(query, Project.class);
         return queryObj.getResultList();
