@@ -42,4 +42,7 @@ public class Project {
 
     public Enterprise getEnterprise(){ return this.enterprise;}
 
+    public String getTitle(){
+        return this.title;
+    }
 }
