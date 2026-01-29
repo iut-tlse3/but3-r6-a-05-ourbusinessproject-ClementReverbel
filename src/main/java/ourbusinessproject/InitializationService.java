@@ -1,5 +1,6 @@
 package ourbusinessproject;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,10 @@ public class InitializationService {
     private Enterprise e1;
     private Enterprise e2;
 
-
-
+    @Transactional
+    //Le @Transactional permet de garder la bd dans un état cohérent
+    //Si un élément ne passe pas alors toute la transaction est annulé
+    //pour éviter les données incohérentes dans notre base de données
     public void initProjects(){
         this.e1 = EPS.newEnterprise(
                 "e1",
