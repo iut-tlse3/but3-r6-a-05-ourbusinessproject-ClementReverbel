@@ -58,7 +58,7 @@ public class EnterpriseProjectService {
     }
 
     public List<Project> findAllProjects(){
-        String query = "SELECT p FROM Project p ORDER BY p.title";
+        String query = "SELECT p FROM Project p JOIN FETCH p.enterprise ORDER BY p.title";
         TypedQuery<Project> queryObj = EM.createQuery(query, Project.class);
         return queryObj.getResultList();
     }
