@@ -2,12 +2,15 @@ package ourbusinessproject;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+import org.hibernate.annotations.TypeRegistration;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
+@Transactional
 @Service
 public class PartnershipService {
 

@@ -22,6 +22,7 @@ public class Bootstrap {
     public void init(){
         try {
             this.IS.initProjects();
+            this.IS.initPartnerships();
         } catch (RuntimeException e) {
             logger.error("Error during bootstrap initialization",e);
         }
