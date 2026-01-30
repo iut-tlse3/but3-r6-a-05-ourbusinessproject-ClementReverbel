@@ -37,4 +37,20 @@ public class Partnership {
     public void setProject(Project p){
         this.project=p;
     }
+
+    public Long getId(){
+        return this.id;
+    }
+
+    public Enterprise getEnterprise(){
+        return this.enterprise;
+    }
+
+    public Project getProject(){
+        return this.project;
+    }
+
+    public Date getCreationDate(){
+        return this.creationDate;
+    }
 }
