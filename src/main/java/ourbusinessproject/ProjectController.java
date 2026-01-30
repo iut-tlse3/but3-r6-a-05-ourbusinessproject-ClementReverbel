@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping(value="/api")
 public class ProjectController {
 
-    EnterpriseProjectService EPS;
+    private EnterpriseProjectService EPS;
 
     public ProjectController(EnterpriseProjectService EPS){
         this.EPS=EPS;
